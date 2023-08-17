@@ -6,4 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".AddSensor">
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/txtAddMedidor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir Medidor"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="@font/unica_one"
+            android:paddingTop="25dp"
+            android:paddingBottom="10dp"
+            android:textSize="40dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="ID del Medidor"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/unica_one"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:id="@+id/etNameMedidor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Nombre del Medidor"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/unica_one"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:id="@+id/etGPSmedidor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Ubicacion del Medidor"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/unica_one"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="Fecha de Pago"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/unica_one"
+            android:paddingLeft="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnAddMedidor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Añadir Medidor"
+                android:fontFamily="@font/unica_one"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

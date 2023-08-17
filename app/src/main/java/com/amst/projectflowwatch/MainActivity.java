@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void addSensor(View view){
         Intent i = new Intent(this,AddSensor.class);
+        /*enviar info
+        i.putExtra(Objeto/Boton, "mensaje");
+         */
         startActivity(i);
     }
 }
