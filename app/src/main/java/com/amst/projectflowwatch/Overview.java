@@ -40,11 +40,7 @@ public class Overview extends AppCompatActivity {
 
     public BarChart graficoBarras;
     private RequestQueue ListaRequest = null;
-    private LinearLayout contenedorDatosMedidor;
-    private Map<String, TextView> temperaturasTVs;
-    private Map<String, TextView> fechasTVs;
     private Overview contexto;
-    public EditText edtxTemp,edtx_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +62,11 @@ public class Overview extends AppCompatActivity {
 
     public void consumoActual(){
         PieChart pieCharts = findViewById(R.id.pieChart);
+
+        Integer valEstimadoPorMes,valConsumo;
+
+
+
 
         ArrayList<PieEntry> v = new ArrayList<>();
         v.add(new PieEntry(10,""));
