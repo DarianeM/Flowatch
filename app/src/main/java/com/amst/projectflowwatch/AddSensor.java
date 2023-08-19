@@ -1,11 +1,10 @@
 package com.amst.projectflowwatch;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,18 +17,28 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AddSensor extends AppCompatActivity {
     EditText IDmedidor, nameMedidor, ubicacionMedidor, pagoDay;
     private RequestQueue ListaRequest = null;
+    private String msjSensor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_sensor);
 
-        IDmedidor = findViewById(R.id.etID);
+        /*recoger datos de otra actividad*/
+        Intent intent = getIntent();
+        msjSensor = intent.getStringExtra("userId");
+
         nameMedidor = findViewById(R.id.etNameMedidor);
         ubicacionMedidor = findViewById(R.id.etGPSmedidor);
         pagoDay = findViewById(R.id.etDate);
@@ -37,20 +46,26 @@ public class AddSensor extends AppCompatActivity {
     }
 
     public void addSensor(View view){
-        String idMedidor = IDmedidor.getText().toString();
-        String NameMedidor = nameMedidor.getText().toString();
-        String UbiMedidor = ubicacionMedidor.getText().toString();
+        String NameMedidor = nameMedidor.toString();
+        String UbiMedidor = ubicacionMedidor.toString();
         Integer dayPago = Integer.parseInt(pagoDay.getText().toString());
+        String dateTime = "";
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            dateTime = ZonedDateTime.now(ZoneId.of("-05:00")).format(DateTimeFormatter.ofPattern("MMM dd yyyy, hh:mm:ss a"));
+        }
 
 
         Map<String,String> paramString = new HashMap();
         paramString.put("name",NameMedidor);
-        paramString.put("userId",idMedidor);
+        paramString.put("userId",msjSensor);
         paramString.put("place",UbiMedidor);
+        paramString.put("dateData", dateTime);
+
 
         JSONObject parametros = new JSONObject(paramString);
         try{
-            parametros.put("paid",dayPago);
+            parametros.put("paid",17);
+            parametros.put("numericData",0);
         }catch (JSONException e){
             throw new RuntimeException();
         }
